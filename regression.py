@@ -10,14 +10,12 @@ TEST_DATA_URL = "https://storage.googleapis.com/kubric-hiring/linreg_test.csv"
 
 
 def predict_price(area) -> float:
-    """
-    This method must accept as input an array `area` (represents a list of areas sizes in sq feet) and must return the respective predicted prices (price per sq foot) using the linear regression model that you build.
-
-    You can run this program from the command line using `python3 regression.py`.
-    """
-    response = requests.get(TRAIN_DATA_URL)
-    # YOUR IMPLEMENTATION HERE
-    ...
+        df = pandas.read_csv("https://storage.googleapis.com/kubric-hiring/linreg_train.csv", header= None,index_col=0)
+    df_test = pandas.read_csv("https://storage.googleapis.com/kubric-hiring/linreg_test.csv", header= None, index_col=0)
+    X_test = numpy.array(df.iloc[0]).reshape(-1,1)
+    X_train = numpy.array(df_test.iloc[0]).reshape(-1,1)
+    Y_test = numpy.array(df.iloc[1]).reshape(-1,1)
+    Y_train = numpy.array(df.iloc[1]).reshape(-1,1)
 
 
 if __name__ == "__main__":
