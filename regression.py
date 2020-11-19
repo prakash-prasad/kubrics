@@ -10,12 +10,12 @@ TEST_DATA_URL = "https://storage.googleapis.com/kubric-hiring/linreg_test.csv"
 
 
 def predict_price(area) -> float:
-        df = pandas.read_csv("https://storage.googleapis.com/kubric-hiring/linreg_train.csv", header= None,index_col=0)
-    df_test = pandas.read_csv("https://storage.googleapis.com/kubric-hiring/linreg_test.csv", header= None, index_col=0)
-    X_test = numpy.array(df.iloc[0]).reshape(-1,1)
-    X_train = numpy.array(df_test.iloc[0]).reshape(-1,1)
-    Y_test = numpy.array(df.iloc[1]).reshape(-1,1)
-    Y_train = numpy.array(df.iloc[1]).reshape(-1,1)
+    y =[]
+    w1,w2= 1.15309690e+03 , 3.44668845e-02
+    for i in area:
+        temp = w1+ (w2*i)
+        y.append(temp)
+    return numpy.array(y)
 
 
 if __name__ == "__main__":
